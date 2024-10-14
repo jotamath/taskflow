@@ -20,7 +20,7 @@ class ToDo:
     def tasks_container(self):
         return ft.Container(
             height=self.page.height = 0.8,
-            #TODO
+            #BUG
             content= ft.Column(
                 controls=[
                     ft.Checkbox(label='Tarefa 1', value=True)
