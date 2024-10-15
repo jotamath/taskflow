@@ -12,15 +12,18 @@ class ToDo:
         self.page.title = 'TaskFlow'
         self.main_page()
 
-    #TODO
+    
     def db_execute(self, query, params = []):
-        pass
+        with sqlite3.connect('database.db') as con:
+            cur = con.cursor()
+            cur.execute(query, params)
+            con.commit()
+            return cur.fetchall()
 
 
     def tasks_container(self):
         return ft.Container(
-            height=self.page.height = 0.8,
-            #BUG
+            height=self.page.height * 0.8,
             content= ft.Column(
                 controls=[
                     ft.Checkbox(label='Tarefa 1', value=True)
